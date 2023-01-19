@@ -29,6 +29,9 @@ values ('Dean Winchester', 14);
 insert into owners (full_name, age)
 values ('Jodie Whittaker', 38);
 
+insert into owners (full_name, age)
+values ('Bob', 45);
+
 /* Insert the following data into the species table*/
 insert into species (name)
 values ('Pokemon');
