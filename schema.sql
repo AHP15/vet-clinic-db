@@ -19,6 +19,13 @@ create table owners (
 	age int
 );
 
+/* species */
+CREATE SEQUENCE specie_id_seq;
+create table species (
+	id int primary key default nextval('specie_id_seq'),
+	name VARCHAR(255),
+);
+
 /* set primary key to animals table*/
 CREATE SEQUENCE animal_id_seq;
 
