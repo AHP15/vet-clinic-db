@@ -51,3 +51,27 @@ ADD COLUMN owner_id INT;
 ALTER TABLE animals
 ADD FOREIGN KEY (owner_id) REFERENCES owners (id);
 
+/* vets*/
+create table vets (
+	id int primary key default nextval('vet_id_seq'),
+	name VARCHAR(255),
+	age int,
+	date_of_graduation date
+);
+
+/* specializations*/
+CREATE TABLE specializations (
+    id SERIAL PRIMARY KEY,
+    species_id INT REFERENCES species(id),
+    vet_id INT REFERENCES vets(id),
+    UNIQUE (species_id, vet_id)
+);
+
+/* visits*/
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    animal_id INT REFERENCES animals(id),
+    vet_id INT REFERENCES vets(id),
+    visit_date DATE NOT NULL,
+    UNIQUE (animal_id, vet_id, visit_date)
+);
